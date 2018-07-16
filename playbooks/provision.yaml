@@ -1,0 +1,8 @@
+- name: openstack-vm-apb provision
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  roles:
+  - openstack-vm-apb
+  vars:
+    state: present

@@ -1,0 +1,65 @@
+---
+
+version: 1.0
+name: openstack-vm-apb
+description:  Openstack VM apb implementation
+bindable: false
+async: optional
+tags:
+  - queue
+metadata:
+  documentationUrl: https://wiki.openstack.org
+  longDescription: An apb that deploys an openstack VM
+  displayName: Openstack VM (APB)
+  console.openshift.io/iconClass: icon-openstack
+  providerDisplayName: "Red Hat, Inc."
+plans:
+  - name: default
+    description: A single Openstack VM
+    free: true
+    metadata:
+      displayName: Default
+      longDescription: This plan provides a single Openstack VM
+      cost: $0.00
+    parameters:
+      - name: instance_type
+        type: string
+        title: Flavor
+        required: true
+      - name: image_name
+        type: string
+        title: Image Name
+        required: true
+      - name: network_name
+        type: string
+        title: Network Name
+        required: true
+      - name: key_name
+        type: string
+        title: SSH Key Pair Name
+        required: false
+      - name: security_group_name
+        type: string
+        title: Security Group Name
+        required: false
+      - name: user
+        title: User
+        type: string
+        required: true
+        display_group: "Openstack Authentication"
+      - name: pass
+        type: string
+        title: Password
+        required: true
+        display_type: password
+        display_group: "Openstack Authentication"
+      - name: project
+        title: Project
+        type: string
+        required: true
+        display_group: "Openstack Authentication"
+      - name: url
+        title: Identity URL
+        type: string
+        required: true
+        display_group: "Openstack Authentication"

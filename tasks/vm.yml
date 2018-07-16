@@ -1,0 +1,23 @@
+---
+- name: process stack
+  ignore_errors: True
+  register: stack_create
+  os_stack:
+    name: "vm-{{ _apb_service_instance_id }}"
+    state: "{{ state }}"
+    template: "{{ role_path }}/templates/{{ service }}.template"
+    environment:
+    validate_certs: no
+    parameters:
+      instance_type: "{{ flavor }}"
+      image_name: "{{ image }}"
+      key_name: "{{ key }}"
+      network_name: "{{ network }}"
+      security_group_name: "{{ security_group }}"
+    auth:
+      auth_url: "{{ url }}"
+      username: "{{ user }}"
+      password: "{{ pass }}"
+      project_name: "{{ project }}"
+      project_domain_name: default
+      user_domain_name: default
